@@ -1,5 +1,5 @@
 #N canvas 833 301 450 487 10;
-#X obj 47 56 adc~;
+#X obj 149 56 adc~;
 #N canvas 1360 441 450 300 snapshot100msec 0;
 #X obj 74 47 snapshot~;
 #X floatatom 74 76 12 0 0 0 - - -;
@@ -20,6 +20,6 @@
 #X connect 6 0 0 0;
 #X connect 8 0 3 0;
 #X restore 212 136 pd snapshot100msec;
-#X floatatom 222 189 5 0 0 0 - - -;
+#X floatatom 212 174 5 0 0 0 - - -;
 #X connect 0 0 1 0;
 #X connect 1 0 2 0;
