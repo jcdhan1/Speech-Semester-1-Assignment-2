@@ -1,4 +1,4 @@
-#N canvas 75 163 958 988 10;
+#N canvas 953 0 958 988 10;
 #X obj -14332 -30801 filemaker;
 #X obj -14572 -31042 formant_reader;
 #X obj -14609 -31145 adc~;
@@ -46,23 +46,36 @@
 #X connect 11 0 6 0;
 #X restore -14515 -31215 pd fileloader;
 #X obj -14731 -31269 hradio 26 1 0 2 empty empty Live|Recorded 0 -8
-0 10 -262144 -1 -1 0;
+0 10 -262144 -1 -1 1;
 #X floatatom -14240 -31004 5 0 0 0 MIDI - -;
 #X obj -14240 -30982 mtof;
 #X floatatom -14240 -30949 5 0 0 0 F0 - -;
 #X obj -14240 -31030 fiddle~ 2048 1 20 0;
 #X obj -14368 -30933 pack 1 1 1 1 1 1;
+#X obj -14315 -31241 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -14298 -31241 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj -14281 -31241 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
 #X connect 1 0 12 0;
-#X connect 1 1 12 2;
+#X connect 1 1 12 1;
+#X connect 1 2 12 2;
+#X connect 1 3 12 3;
 #X connect 2 0 4 0;
 #X connect 3 0 6 0;
 #X connect 4 0 1 0;
 #X connect 4 0 11 0;
 #X connect 5 0 6 1;
 #X connect 6 0 4 1;
+#X connect 6 1 14 0;
+#X connect 6 2 15 0;
 #X connect 7 0 4 0;
 #X connect 8 0 9 0;
 #X connect 9 0 10 0;
 #X connect 10 0 12 5;
 #X connect 11 0 8 0;
 #X connect 12 0 0 0;
+#X connect 13 0 0 1;
+#X connect 14 0 0 2;
+#X connect 15 0 0 3;
