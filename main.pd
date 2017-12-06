@@ -1,35 +1,13 @@
-#N canvas -7 0 958 988 10;
-#X obj -14882 -31451 adc~;
-#N canvas 1360 441 450 300 snapshot100msec 0;
-#X obj 74 47 snapshot~;
-#X floatatom 74 76 12 0 0 0 - - -;
-#X msg 90 14 bang;
-#X obj 90 -19 metro 100;
-#X obj 90 -51 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144 -1
--1;
-#X obj 90 -80 inlet;
-#X obj -36 -80 inlet~;
-#X obj 93 142 outlet;
-#X obj 134 -80 initbang;
-#X connect 0 0 1 0;
-#X connect 1 0 7 0;
-#X connect 2 0 0 0;
-#X connect 3 0 2 0;
-#X connect 4 0 3 0;
-#X connect 5 0 4 0;
-#X connect 6 0 0 0;
-#X connect 8 0 3 0;
-#X restore -14660 -31002 pd snapshot100msec;
-#X floatatom -15104 -30973 5 0 0 0 - - -;
-#X obj -14905 -31099 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj -14597 -31232 framp~;
-#X obj -14658 -31338 rfft~;
-#X msg -14541 -31110 bang;
-#X obj -14627 -31104 framp~;
-#X obj -14540 -31055 print~ frequency;
-#X obj -14525 -31080 print~ amplitude;
-#X text -14504 -31110 <- print analysis;
+#N canvas 75 163 958 988 10;
+#X obj -14332 -30801 filemaker;
+#X obj -14572 -31042 formant_reader;
+#X obj -14368 -30933 pack 0 0 0 0 0 0;
+#X obj -14609 -31145 adc~;
+#X obj -14573 -31288 bng 15 250 50 0 empty empty Open -24 -12 0 24
+-262144 -1 -1;
+#X obj -14330 -31137 multiplex~;
+#X obj -14433 -31288 bng 15 250 50 0 empty empty Analyse -24 -12 0
+24 -262144 -1 -1;
 #N canvas 172 195 958 988 fileloader 0;
 #X obj -1866 -23314 openpanel;
 #X msg -1766 -23069 open \$1;
@@ -67,31 +45,24 @@
 #X connect 8 0 1 0;
 #X connect 10 0 3 0;
 #X connect 11 0 6 0;
-#X restore -14614 -31427 pd fileloader;
-#X obj -14605 -31541 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj -14479 -31519 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj -14154 -31344 snapshot~;
-#X obj -14426 -30866 wsprobe~;
-#X obj -14231 -31114 filemaker;
-#X obj -14262 -31245 formant_reader;
-#X obj -14241 -31178 pack 0 0 0 0 0 0;
-#X connect 0 0 5 0;
-#X connect 0 0 17 0;
+#X restore -14515 -31215 pd fileloader;
+#X obj -14731 -31269 hradio 26 1 0 2 empty empty Live|Recorded 0 -8
+0 10 -262144 -1 -1 0;
+#X floatatom -14240 -31004 5 0 0 0 MIDI - -;
+#X obj -14240 -30982 mtof;
+#X floatatom -14240 -30949 5 0 0 0 F0 - -;
+#X obj -14240 -31030 fiddle~ 2048 1 20 0;
 #X connect 1 0 2 0;
-#X connect 3 0 1 1;
-#X connect 3 0 6 0;
-#X connect 5 0 7 0;
-#X connect 5 1 7 1;
-#X connect 6 0 8 0;
-#X connect 6 0 9 0;
-#X connect 7 0 8 0;
-#X connect 7 0 1 0;
-#X connect 7 0 15 0;
-#X connect 7 1 9 0;
-#X connect 12 0 11 0;
-#X connect 13 0 11 1;
-#X connect 17 0 18 0;
-#X connect 17 1 18 2;
-#X connect 18 0 16 0;
+#X connect 1 1 2 2;
+#X connect 2 0 0 0;
+#X connect 3 0 5 0;
+#X connect 4 0 7 0;
+#X connect 5 0 1 0;
+#X connect 5 0 12 0;
+#X connect 6 0 7 1;
+#X connect 7 0 5 1;
+#X connect 8 0 5 0;
+#X connect 9 0 10 0;
+#X connect 10 0 11 0;
+#X connect 11 0 2 5;
+#X connect 12 0 9 0;
