@@ -1,5 +1,5 @@
-#N canvas 0 321 1908 676 10;
-#X obj -15031 -31383 adc~;
+#N canvas -7 0 958 988 10;
+#X obj -14882 -31451 adc~;
 #N canvas 1360 441 450 300 snapshot100msec 0;
 #X obj 74 47 snapshot~;
 #X floatatom 74 76 12 0 0 0 - - -;
@@ -67,14 +67,18 @@
 #X connect 8 0 1 0;
 #X connect 10 0 3 0;
 #X connect 11 0 6 0;
-#X restore -15006 -31565 pd fileloader;
-#X obj -14997 -31679 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X restore -14614 -31427 pd fileloader;
+#X obj -14605 -31541 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
-#X obj -14871 -31657 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+#X obj -14479 -31519 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
 -1 -1;
 #X obj -14154 -31344 snapshot~;
 #X obj -14426 -30866 wsprobe~;
+#X obj -14231 -31114 filemaker;
+#X obj -14262 -31245 formant_reader;
+#X obj -14241 -31178 pack 0 0 0 0 0 0;
 #X connect 0 0 5 0;
+#X connect 0 0 17 0;
 #X connect 1 0 2 0;
 #X connect 3 0 1 1;
 #X connect 3 0 6 0;
@@ -88,3 +92,6 @@
 #X connect 7 1 9 0;
 #X connect 12 0 11 0;
 #X connect 13 0 11 1;
+#X connect 17 0 18 0;
+#X connect 17 1 18 2;
+#X connect 18 0 16 0;
