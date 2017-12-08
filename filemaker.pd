@@ -1,64 +1,63 @@
-#N canvas -8 -8 1920 997 10;
-#X floatatom -6 57 5 0 0 0 F1 - -;
+#N canvas 908 251 1908 901 10;
+#X floatatom 46 54 5 0 0 0 F1 - -;
 #X floatatom 266 57 5 0 0 0 F2 - -;
 #X floatatom 103 57 5 0 0 0 A1 - -;
 #X floatatom 376 57 5 0 0 0 A2 - -;
-#X floatatom 671 16 5 0 0 0 F0 - -;
-#X floatatom 541 16 5 0 0 0 V - -;
-#X floatatom -6 166 5 0 0 0 - - -;
+#X floatatom 526 5 5 0 0 0 F0 - -;
+#X floatatom 475 6 5 0 0 0 V - -;
+#X floatatom 66 189 5 0 0 0 - - -;
 #X floatatom 266 166 5 0 0 0 - - -;
 #X floatatom 320 238 5 0 0 0 - - -;
-#X floatatom 671 125 5 0 0 0 - - -;
+#X floatatom 526 114 5 0 0 0 - - -;
 #X floatatom 541 137 5 0 0 0 - - -;
-#X msg -99 165 32;
+#X msg -17 185 32;
 #X obj 103 137 expr 20*log10($f1)+63;
 #X obj 266 137 expr ($f1-500)/50;
 #X obj 376 137 expr 20*log10($f1)+63;
-#X obj 671 96 expr 1+16*log($f1/25)/log(2);
-#X msg 723 124 32;
-#X obj -99 57 loadbang;
-#X msg -47 165 1;
-#X text -83 140 FN;
-#X text -43 143 ALF;
-#X obj -99 -42 inlet;
+#X obj 526 85 expr 1+16*log($f1/25)/log(2);
+#X msg 578 113 32;
+#X obj -17 77 loadbang;
+#X msg 35 185 1;
+#X text -1 160 FN;
+#X text 39 163 ALF;
+#X obj -15 -46 inlet;
 #X msg 513 137 1;
 #X text 511 123 AHF;
-#X obj 321 694 textfile;
-#X msg 321 514 clear;
-#X msg 405 414 stop;
-#X obj 405 352 bng 15 250 50 0 empty empty Stop 17 7 0 10 -262144 -1
+#X obj 262 648 textfile;
+#X msg 262 468 clear;
+#X msg 346 368 stop;
+#X obj 346 306 bng 15 250 50 0 empty empty Stop 17 7 0 10 -262144 -1
 -1;
-#X obj 321 352 bng 15 250 50 0 empty empty Record 17 7 0 10 -262144
+#X obj 262 306 bng 15 250 50 0 empty empty Record 17 7 0 10 -262144
 -1 -1;
-#X obj 55 300 pack 32 1 1 1 1 1 1 1 1 1 1 32;
-#X obj 405 542 list;
-#X obj 405 593 list trim;
-#X msg 405 514 add;
-#X obj -6 137 expr ($f1-100)/25;
-#X obj 55 525 list-round 1;
-#X msg 257 613 write \$1 cr;
-#X obj 173 352 bng 15 250 50 0 empty empty Save-As 17 7 0 10 -262144
+#X obj -4 254 pack 32 1 1 1 1 1 1 1 1 1 1 32;
+#X obj 288 496 list;
+#X obj 289 557 list trim;
+#X msg 346 468 add;
+#X obj 88 112 expr ($f1-100)/25;
+#X obj -4 479 list-round 1;
+#X msg 198 567 write \$1 cr;
+#X obj 114 306 bng 15 250 50 0 empty empty Save-As 17 7 0 10 -262144
 -1 -1;
-#X obj 173 514 print;
-#X symbolatom 257 515 10 0 0 0 - - -;
-#X obj 173 414 savepanel;
-#X obj 139 335 inlet;
-#X obj 287 335 inlet;
-#X obj 371 335 inlet;
+#X obj 114 468 print;
+#X symbolatom 198 469 10 0 0 0 - - -;
+#X obj 114 368 savepanel;
+#X obj 80 289 inlet;
+#X obj 228 289 inlet;
+#X obj 312 289 inlet;
 #X obj 103 166 expr if ($f1 < 1 \, 1 \, $f1) \;;
 #X obj 376 165 expr if ($f1 < 1 \, 1 \, $f1) \;;
 #X floatatom 103 218 5 0 0 0 - - -;
-#X obj 405 451 metro 10;
-#X obj 541 96 expr $i2*(($f1*62)+1);
-#X obj 510 352 tgl 15 0 empty empty Whispered 17 7 0 10 -262144 -1
--1 0 1;
-#X obj 476 335 inlet;
-#X obj 510 497 expr abs($i1-1);
+#X obj 346 405 metro 10;
+#X obj 318 100 expr $i2*(($f1*62)+1);
+#X obj 438 445 tgl 15 0 empty empty NotAlwaysWhispered 17 7 0 10 -262144
+-1 -1 1 1;
+#X obj 414 367 inlet;
 #X text 266 -16 This part combines the parameters into one vector.
 ;
-#X text -41 674 This part saves the contents of the list to a .pfs
+#X text -19 667 This part saves the contents of the list to a .pfs
 file.;
-#X text 523 555 This part takes a snapshot of a vector every 10 milliseconds
+#X text 306 514 This part takes a snapshot of a vector every 10 milliseconds
 \, rounds all of the components to the nearest integer and writes it
 to a line in the list.;
 #X floatatom 389 190 5 0 0 0 F3 - -;
@@ -68,6 +67,7 @@ to a line in the list.;
 #X obj 499 298 expr if ($f1 < 1 \, 1 \, $f1) \;;
 #X obj 389 270 expr ($f1-1300)/50;
 #X obj -6 -25 unpack 0 0 0 0 0 0 0 0;
+#X obj 540 393 loadbang;
 #X connect 0 0 33 0;
 #X connect 1 0 13 0;
 #X connect 2 0 12 0;
@@ -91,7 +91,7 @@ to a line in the list.;
 #X connect 17 0 22 0;
 #X connect 18 0 29 1;
 #X connect 21 0 17 0;
-#X connect 21 0 60 0;
+#X connect 21 0 59 0;
 #X connect 22 0 29 8;
 #X connect 25 0 24 0;
 #X connect 26 0 46 0;
@@ -118,20 +118,20 @@ to a line in the list.;
 #X connect 45 0 29 3;
 #X connect 46 0 32 0;
 #X connect 47 0 10 0;
-#X connect 48 0 50 0;
+#X connect 48 0 47 1;
 #X connect 49 0 48 0;
-#X connect 50 0 47 1;
-#X connect 54 0 59 0;
-#X connect 55 0 57 0;
-#X connect 56 0 29 6;
-#X connect 57 0 58 0;
-#X connect 58 0 29 7;
-#X connect 59 0 56 0;
-#X connect 60 0 0 0;
-#X connect 60 1 2 0;
-#X connect 60 2 1 0;
-#X connect 60 3 3 0;
-#X connect 60 4 54 0;
-#X connect 60 5 55 0;
-#X connect 60 6 5 0;
-#X connect 60 7 4 0;
+#X connect 53 0 58 0;
+#X connect 54 0 56 0;
+#X connect 55 0 29 6;
+#X connect 56 0 57 0;
+#X connect 57 0 29 7;
+#X connect 58 0 55 0;
+#X connect 59 0 0 0;
+#X connect 59 1 2 0;
+#X connect 59 2 1 0;
+#X connect 59 3 3 0;
+#X connect 59 4 53 0;
+#X connect 59 5 54 0;
+#X connect 59 6 5 0;
+#X connect 59 7 4 0;
+#X connect 60 0 48 0;

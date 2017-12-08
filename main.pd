@@ -1,5 +1,5 @@
 #N canvas 131 29 601 336 10;
-#N canvas 147 267 958 988 (subpatch) 1;
+#N canvas 147 267 958 988 (subpatch) 0;
 #X obj 0 0 cnv 15 597 208 empty empty PREFERENCES 20 12 0 14 -262144
 -1 0;
 #X obj 295 307 filemaker;
@@ -72,6 +72,7 @@
 #X floatatom 182 166 3 0 0 0 - - -;
 #X text 27 139 Voicing Threshold;
 #X obj 195 290 pack 1 1 1 1 1 1 1 1;
+#X obj 26 290 expr abs($i1-1);
 #X connect 2 0 24 0;
 #X connect 2 1 24 1;
 #X connect 2 2 24 2;
@@ -96,9 +97,10 @@
 #X connect 16 0 1 3;
 #X connect 17 0 1 2;
 #X connect 18 0 1 1;
-#X connect 20 0 1 4;
+#X connect 20 0 25 0;
 #X connect 21 0 22 0;
 #X connect 22 0 7 1;
 #X connect 24 0 1 0;
+#X connect 25 0 1 4;
 #X coords 0 1 1 -1 597 208 1 0 0;
 #X restore 0 0 graph;
