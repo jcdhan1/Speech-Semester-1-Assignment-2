@@ -1,12 +1,17 @@
-#N canvas 953 0 958 988 10;
-#X obj -14332 -30801 filemaker;
-#X obj -14572 -31042 formant_reader;
-#X obj -14609 -31145 adc~;
-#X obj -14573 -31288 bng 15 250 50 0 empty empty Open -24 -12 0 24
--262144 -1 -1;
-#X obj -14330 -31137 multiplex~;
-#X obj -14433 -31288 bng 15 250 50 0 empty empty Analyse -24 -12 0
-24 -262144 -1 -1;
+#N canvas -8 -8 1920 997 10;
+#N canvas -195 506 1908 997 (subpatch) 0;
+#X obj 0 0 cnv 15 597 200 empty empty Preferences 20 12 0 14 -262144
+-1 0;
+#X obj 192 501 filemaker;
+#X obj 185 305 formant_reader;
+#X floatatom 306 338 5 0 0 0 MIDI - -;
+#X obj 306 360 mtof;
+#X floatatom 306 393 5 0 0 0 F0 - -;
+#X obj 306 312 fiddle~ 2048 1 20 0;
+#X obj 202 434 pack 1 1 1 1 1 1;
+#X obj 532 339 voice_decision;
+#X obj 239 107 adc~;
+#X obj 296 162 multiplex~;
 #N canvas 172 195 958 988 fileloader 0;
 #X obj -1866 -23314 openpanel;
 #X msg -1766 -23069 open \$1;
@@ -44,55 +49,47 @@
 #X connect 8 0 1 0;
 #X connect 10 0 3 0;
 #X connect 11 0 6 0;
-#X restore -14515 -31215 pd fileloader;
-#X obj -14731 -31269 hradio 26 1 0 2 empty empty Live|Recorded 0 -8
-0 10 -262144 -1 -1 1;
-#X floatatom -14240 -31004 5 0 0 0 MIDI - -;
-#X obj -14240 -30982 mtof;
-#X floatatom -14240 -30949 5 0 0 0 F0 - -;
-#X obj -14240 -31030 fiddle~ 2048 1 20 0;
-#X obj -14368 -30933 pack 1 1 1 1 1 1;
-#X obj -14315 -31241 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj -14298 -31241 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#X obj -14281 -31241 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
--1 -1;
-#N canvas 18 304 1912 978 voice_decision 1;
-#X obj -186 -668 voicing_detector~;
-#X obj -185 -716 inlet~;
-#X obj -185 -577 outlet;
-#X floatatom -186 -621 5 0 0 0 - - -;
-#X floatatom -26 -637 5 0 0 0 - - -;
-#X obj -2 -761 vsl 15 101 0 100 0 0 empty empty empty 0 -8 0 8 -262144
--1 -1 0 1;
-#X obj -105 -575 block~ 1024;
-#X connect 0 0 3 0;
-#X connect 1 0 0 0;
-#X connect 3 0 2 0;
-#X connect 4 0 0 1;
-#X connect 5 0 4 0;
-#X restore -14447 -31056 pd voice_decision;
-#X connect 1 0 12 0;
-#X connect 1 1 12 1;
-#X connect 1 2 12 2;
-#X connect 1 3 12 3;
-#X connect 2 0 4 0;
-#X connect 3 0 6 0;
-#X connect 4 0 1 0;
-#X connect 4 0 11 0;
-#X connect 4 0 16 0;
-#X connect 5 0 6 1;
-#X connect 6 0 4 1;
-#X connect 6 1 14 0;
-#X connect 6 2 15 0;
-#X connect 7 0 4 0;
-#X connect 8 0 9 0;
+#X restore 695 103 pd fileloader;
+#X obj 495 0 cnv 15 102 200 empty empty RECORDED 20 12 0 14 -258113
+-4032 0;
+#X obj 520 78 bng 26 250 50 0 empty empty Open 0 -8 0 10 -262144 -4032
+-1;
+#X obj 520 130 bng 26 250 50 0 empty empty Convert 0 -8 0 10 -262144
+-4034 -1;
+#X obj 391 0 cnv 15 102 200 empty empty LIVE 20 12 0 14 -4032 -258113
+0;
+#X obj 468 26 hradio 26 1 0 2 empty empty empty 0 0 0 10 -258112 -4034
+-4034 0;
+#X obj 442 130 bng 26 250 50 0 empty empty Stop 0 -8 0 10 -262144 -1
+-1;
+#X obj 442 78 bng 26 250 50 0 empty empty Record 0 -8 0 10 -262144
+-258113 -1;
+#X obj 26 52 bng 26 250 50 0 empty empty empty 0 -8 0 10 -257985 -4160
+-4160;
+#X text 24 35 Choose the filename prior to recording/converting.;
+#X obj 26 104 tgl 26 0 empty empty Whispered 0 -8 0 10 -257985 -4160
+-1 0 1;
+#X connect 2 0 7 0;
+#X connect 2 1 7 1;
+#X connect 2 2 7 2;
+#X connect 2 3 7 3;
+#X connect 3 0 4 0;
+#X connect 4 0 5 0;
+#X connect 5 0 7 5;
+#X connect 6 0 3 0;
+#X connect 7 0 1 0;
+#X connect 8 0 7 4;
 #X connect 9 0 10 0;
-#X connect 10 0 12 5;
-#X connect 11 0 8 0;
-#X connect 12 0 0 0;
-#X connect 13 0 0 1;
-#X connect 14 0 0 2;
-#X connect 15 0 0 3;
-#X connect 16 0 12 4;
+#X connect 10 0 2 0;
+#X connect 10 0 8 0;
+#X connect 10 0 6 0;
+#X connect 11 0 10 1;
+#X connect 11 1 18 0;
+#X connect 11 2 17 0;
+#X connect 13 0 11 0;
+#X connect 14 0 11 1;
+#X connect 17 0 1 3;
+#X connect 18 0 1 2;
+#X connect 19 0 1 1;
+#X coords 0 1 1 -1 597 200 1 0 0;
+#X restore 0 0 graph;
