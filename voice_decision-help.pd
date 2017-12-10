@@ -1,0 +1,16 @@
+#N canvas 691 481 450 300 12;
+#X obj 237 73 voice_decision;
+#X text 28 53 Inlets:;
+#X text 28 68 1~: Audio Signal;
+#X text 28 102 Outlets;
+#X text 28 123 1: Voiced (1) or voiceless (0);
+#X text 28 82 2: Threshold;
+#X obj 236 26 adc~;
+#X obj 357 33 vsl 15 128 0 127 0 0 empty empty empty 0 -9 0 10 -262144
+-1 -1 0 1;
+#X floatatom 357 172 5 0 0 0 - - -;
+#X floatatom 237 177 5 0 0 0 - - -;
+#X connect 0 0 9 0;
+#X connect 6 0 0 0;
+#X connect 7 0 8 0;
+#X connect 8 0 0 1;

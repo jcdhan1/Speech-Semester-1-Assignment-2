@@ -1,0 +1,18 @@
+#N canvas 876 590 450 300 12;
+#X text 28 54 Inlets:;
+#X text 28 66 1~: Audio Signal;
+#X text 28 -9 Arguments:;
+#X text 28 11 1: Lower Bound;
+#X text 28 22 2: Upper bound;
+#X text 28 38 3: Coefficient;
+#X text 28 102 Outlets;
+#X text 28 123 1: Formant Frequency;
+#X text 28 147 2: Amplitude;
+#X floatatom 199 133 5 0 0 0 - - -;
+#X floatatom 378 133 5 0 0 0 - - -;
+#X obj 199 32 adc~;
+#X obj 199 89 formant_freq_amp 2200 3500 4056;
+#X text 259 12 Example: 3rd formant;
+#X connect 11 0 12 0;
+#X connect 12 0 9 0;
+#X connect 12 1 10 0;

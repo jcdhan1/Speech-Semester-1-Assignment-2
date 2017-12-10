@@ -1,0 +1,28 @@
+#N canvas 700 469 849 300 12;
+#X obj 110 157 filemaker;
+#X msg 62 89 list 1 1 1 1 1 1 1 1;
+#X obj 62 18 loadbang;
+#X obj 125 118 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 140 118 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 155 118 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X text 264 25 Inlets:;
+#X text 264 100 Bang to launch a save dialog that determines the .pfs's
+files name.;
+#X text 264 150 Bang to start recording.;
+#X text 264 50 List of parameters to record to a list every 10 milliseconds.
+;
+#X text 264 200 Bang to stop recording and save the list to a .pfs
+file.;
+#X text 264 250 1 means no whisper \, 0 is whisper.;
+#X msg 189 118 1;
+#X msg 221 137 0;
+#X connect 1 0 0 0;
+#X connect 2 0 1 0;
+#X connect 3 0 0 1;
+#X connect 4 0 0 2;
+#X connect 5 0 0 3;
+#X connect 12 0 0 4;
+#X connect 13 0 0 4;
