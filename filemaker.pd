@@ -1,4 +1,4 @@
-#N canvas -140 553 1908 823 10;
+#N canvas 118 206 1908 823 10;
 #X floatatom 46 58 5 0 0 0 F1 - -;
 #X floatatom 266 61 5 0 0 0 F2 - -;
 #X floatatom 103 61 5 0 0 0 A1 - -;
@@ -66,8 +66,10 @@
 #X text 345 498 Save vector every 10 milliseconds;
 #X text -12 502 Round all components to nearest int;
 #X text 167 11 Calculate components of vector from parameters;
+#X obj 346 340 del 10;
+#X text 362 357 Delay so last vector is still written to the file;
 #X connect 0 0 33 0;
-#X connect 1 0 13 0;
+#X connect 1 0 47 0;
 #X connect 2 0 12 0;
 #X connect 3 0 14 0;
 #X connect 4 0 15 0;
@@ -93,8 +95,8 @@
 #X connect 22 0 29 8;
 #X connect 25 0 24 0;
 #X connect 26 0 46 0;
-#X connect 27 0 26 0;
 #X connect 27 0 38 0;
+#X connect 27 0 63 0;
 #X connect 28 0 25 0;
 #X connect 28 0 46 0;
 #X connect 29 0 34 0;
@@ -133,3 +135,4 @@
 #X connect 56 6 5 0;
 #X connect 56 7 4 0;
 #X connect 57 0 48 0;
+#X connect 63 0 26 0;
